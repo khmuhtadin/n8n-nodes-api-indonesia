@@ -7,7 +7,7 @@ export class ApiIndonesia implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'API Indonesia',
 		name: 'apiIndonesia',
-		icon: 'file:api-indonesia.svg',
+		icon: { light: 'file:api-indonesia.light.svg', dark: 'file:api-indonesia.dark.svg' },
 		group: ['output'],
 		version: 1,
 		subtitle: '={{$parameter["operation"] + ": " + $parameter["resource"]}}',
