@@ -17,10 +17,7 @@ jobs:
           node-version: 20
           registry-url: https://registry.npmjs.org
       - run: npm ci
-        working-directory: n8n-node
       - run: npm run build
-        working-directory: n8n-node
       - run: npm publish --provenance --access public
-        working-directory: n8n-node
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
