@@ -5,11 +5,10 @@
   "homepage": "https://docs.apiindonesia.id",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/khmuhtadin/api-indonesia.git",
-    "directory": "n8n-node"
+    "url": "git+https://github.com/khmuhtadin/n8n-nodes-api-indonesia.git"
   },
   "bugs": {
-    "url": "https://github.com/khmuhtadin/api-indonesia/issues"
+    "url": "https://github.com/khmuhtadin/n8n-nodes-api-indonesia/issues"
   },
   "license": "MIT",
   "author": {
