@@ -1,0 +1,54 @@
+{
+  "name": "n8n-nodes-api-indonesia",
+  "version": "0.1.3",
+  "description": "n8n community node for API Indonesia - Indonesian public data API",
+  "homepage": "https://docs.apiindonesia.id",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/khmuhtadin/api-indonesia.git",
+    "directory": "n8n-node"
+  },
+  "bugs": {
+    "url": "https://github.com/khmuhtadin/api-indonesia/issues"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Khmuhtadin",
+    "email": "contactmuhtadin@gmail.com"
+  },
+  "keywords": [
+    "n8n-community-node-package",
+    "n8n",
+    "api-indonesia",
+    "indonesia"
+  ],
+  "files": [
+    "dist"
+  ],
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "strict": true,
+    "credentials": [
+      "dist/credentials/ApiIndonesiaApi.credentials.js"
+    ],
+    "nodes": [
+      "dist/nodes/ApiIndonesia/ApiIndonesia.node.js"
+    ]
+  },
+  "scripts": {
+    "build": "n8n-node build",
+    "dev": "n8n-node dev",
+    "lint": "n8n-node lint",
+    "lint:fix": "n8n-node lint --fix",
+    "release": "n8n-node release"
+  },
+  "devDependencies": {
+    "@n8n/node-cli": "*",
+    "eslint": "9.x",
+    "prettier": "3.x",
+    "typescript": "5.x"
+  },
+  "peerDependencies": {
+    "n8n-workflow": "*"
+  }
+}

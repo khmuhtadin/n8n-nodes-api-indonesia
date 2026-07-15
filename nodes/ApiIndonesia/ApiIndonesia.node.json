@@ -1,0 +1,4 @@
+{
+  "$schema": "https://raw.githubusercontent.com/n8n-io/n8n/master/nodes-base/nodes/schema/node-json-schema.json",
+  "nodeType": "apiIndonesia"
+}
