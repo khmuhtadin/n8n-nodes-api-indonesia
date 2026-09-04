@@ -14,8 +14,7 @@ export const peringatanDiniOperations: INodeProperties[] = [
     displayOptions: { show: { resource: ['peringatanDini'] } },
     options: [
       {
-        // eslint-disable-next-line n8n-nodes-base/node-param-option-name-wrong-for-get-many -- intentionally renamed to avoid duplicating the "Return All Results" toggle
-        name: 'List Early Warnings',
+                name: 'Get Many',
         value: 'getAll',
         action: 'Get many early warnings',
         routing: {

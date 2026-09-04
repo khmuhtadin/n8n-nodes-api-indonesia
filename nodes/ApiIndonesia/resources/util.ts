@@ -39,7 +39,7 @@ export const utilOperations: INodeProperties[] = [
         },
       },
       {
-        name: 'Rupiah Terbilang',
+        name: 'Rupiah to Words',
         value: 'rupiahTerbilang',
         action: 'Convert a number to indonesian words',
         routing: {

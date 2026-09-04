@@ -14,8 +14,7 @@ export const rsOperations: INodeProperties[] = [
     displayOptions: { show: { resource: ['rs'] } },
     options: [
       {
-        // eslint-disable-next-line n8n-nodes-base/node-param-option-name-wrong-for-get-many -- intentionally renamed to avoid duplicating the "Return All Results" toggle
-        name: 'List Hospitals',
+                name: 'Get Many',
         value: 'getAll',
         action: 'Get many hospitals',
         routing: {
@@ -83,7 +82,7 @@ export const rsOperations: INodeProperties[] = [
     routing: { send: { type: 'query', property: 'kabupaten_id' } },
   },
   {
-    displayName: 'Jenis Filter',
+    displayName: 'Type Filter',
     name: 'jenisFilter',
     type: 'string',
     displayOptions: { show: { resource: ['rs'], operation: ['getAll'] } },
@@ -92,7 +91,7 @@ export const rsOperations: INodeProperties[] = [
     routing: { send: { type: 'query', property: 'jenis' } },
   },
   {
-    displayName: 'Kelas Filter',
+    displayName: 'Class Filter',
     name: 'kelasFilter',
     type: 'string',
     displayOptions: { show: { resource: ['rs'], operation: ['getAll'] } },

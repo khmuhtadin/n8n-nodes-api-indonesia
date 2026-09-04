@@ -14,8 +14,7 @@ export const sekolahOperations: INodeProperties[] = [
     displayOptions: { show: { resource: ['sekolah'] } },
     options: [
       {
-        // eslint-disable-next-line n8n-nodes-base/node-param-option-name-wrong-for-get-many -- intentionally renamed to avoid duplicating the "Return All Results" toggle
-        name: 'List Schools',
+                name: 'Get Many',
         value: 'getAll',
         action: 'Get many schools',
         routing: {
@@ -84,7 +83,7 @@ export const sekolahOperations: INodeProperties[] = [
     routing: { send: { type: 'query', property: 'kabupaten_id' } },
   },
   {
-    displayName: 'Jenis Filter',
+    displayName: 'Type Filter',
     name: 'jenisFilter',
     type: 'string',
     displayOptions: { show: { resource: ['sekolah'], operation: ['getAll'] } },

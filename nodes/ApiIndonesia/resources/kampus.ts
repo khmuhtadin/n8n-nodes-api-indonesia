@@ -14,8 +14,7 @@ export const kampusOperations: INodeProperties[] = [
     displayOptions: { show: { resource: ['kampus'] } },
     options: [
       {
-        // eslint-disable-next-line n8n-nodes-base/node-param-option-name-wrong-for-get-many -- intentionally renamed to avoid duplicating the "Return All Results" toggle
-        name: 'List Universities',
+                name: 'Get Many',
         value: 'getAll',
         action: 'Get many universities',
         routing: {
@@ -83,7 +82,7 @@ export const kampusOperations: INodeProperties[] = [
     routing: { send: { type: 'query', property: 'kabupaten_id' } },
   },
   {
-    displayName: 'Jenis Filter',
+    displayName: 'Type Filter',
     name: 'jenisFilter',
     type: 'string',
     displayOptions: { show: { resource: ['kampus'], operation: ['getAll'] } },
@@ -92,7 +91,7 @@ export const kampusOperations: INodeProperties[] = [
     routing: { send: { type: 'query', property: 'jenis' } },
   },
   {
-    displayName: 'Kelompok Filter',
+    displayName: 'Group Filter',
     name: 'kelompokFilter',
     type: 'string',
     displayOptions: { show: { resource: ['kampus'], operation: ['getAll'] } },

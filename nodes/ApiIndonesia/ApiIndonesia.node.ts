@@ -11,7 +11,7 @@ export class ApiIndonesia implements INodeType {
 		group: ['output'],
 		version: 1,
 		subtitle: '={{$parameter["operation"] + ": " + $parameter["resource"]}}',
-		description: 'Indonesian public data API - wilayah, sholat, gempa, cuaca, and more',
+		description: 'Indonesian public data API - region, prayer times, earthquakes, weather, and more',
 		defaults: { name: 'API Indonesia' },
 		usableAsTool: true,
 		inputs: [NodeConnectionTypes.Main],

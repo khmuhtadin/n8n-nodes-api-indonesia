@@ -19,29 +19,29 @@ n8n-nodes-api-indonesia
 
 ## Supported Resources
 
-- Wilayah (provinces, regencies, districts, villages)
-- Sholat (prayer times)
-- Gempa (earthquakes)
-- Cuaca (weather)
-- Kurs (exchange rates)
-- Libur (holidays)
-- Kodepos (postal codes)
-- Sekolah (schools)
-- Kampus (universities)
-- Rumah Sakit (hospitals)
+- Region (provinces, regencies, districts, villages)
+- Prayer Times
+- Earthquake
+- Weather
+- Exchange Rate
+- Holiday
+- Postal Code
+- School
+- University
+- Hospital
 - Quran
-- Alkitab (Bible)
+- Bible
 - KBBI (dictionary)
-- Plates (vehicle license plates)
+- Plate (vehicle license plates)
 - UMP (minimum wages)
 - Halal (halal certification)
 - BPOM (BPOM products)
 - Hijriah (Hijri calendar)
-- Astronomi (sun, moon, eclipses)
+- Astronomy (sun, moon, eclipses)
 - OJK Invest (investment products)
-- Peringatan Dini (early warnings)
-- Kurs BI (Bank Indonesia rates)
-- Validasi (validators)
+- Early Warning (BMKG early warnings)
+- BI Exchange Rate (Bank Indonesia rates)
+- Validation (NIK, NPWP, bank, phone validators)
 - Util (utilities)
 
 ## Usage Examples
@@ -49,7 +49,7 @@ n8n-nodes-api-indonesia
 ### Get all provinces
 
 1. Add the **API Indonesia** node to your workflow.
-2. Select **Resource**: Wilayah.
+2. Select **Resource**: Region.
 3. Select **Operation**: Get All Provinces.
 4. Toggle **Return All Results** to fetch all provinces.
 5. Execute the node.
@@ -57,7 +57,7 @@ n8n-nodes-api-indonesia
 ### Get prayer times for a city
 
 1. Add the **API Indonesia** node.
-2. Select **Resource**: Sholat.
+2. Select **Resource**: Prayer Times.
 3. Select **Operation**: Get Prayer Times.
 4. Use the **Regency ID** dropdown to search and select a city.
 5. Enter a date (YYYY-MM-DD format).
@@ -66,7 +66,7 @@ n8n-nodes-api-indonesia
 ### Search schools by name
 
 1. Add the **API Indonesia** node.
-2. Select **Resource**: Sekolah.
+2. Select **Resource**: School.
 3. Select **Operation**: Search Schools.
 4. Enter a search query.
 5. Toggle **Return All Results** or set a limit.

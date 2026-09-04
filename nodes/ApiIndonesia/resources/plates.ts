@@ -13,8 +13,7 @@ export const platesOperations: INodeProperties[] = [
     displayOptions: { show: { resource: ['plates'] } },
     options: [
       {
-        // eslint-disable-next-line n8n-nodes-base/node-param-option-name-wrong-for-get-many -- intentionally renamed to avoid duplicating the "Return All Results" toggle
-        name: 'List Plate Codes',
+                name: 'Get Many',
         value: 'getAll',
         action: 'Get many vehicle plate codes',
         routing: {
