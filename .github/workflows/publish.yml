@@ -1,8 +1,9 @@
 name: Publish n8n node
 
 on:
-  release:
-    types: [published]
+  push:
+    tags:
+      - '*.*.*'
 
 jobs:
   publish:
