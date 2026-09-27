@@ -27,4 +27,11 @@ export const resourceOptions: INodeProperties['options'] = [
   { name: 'BI Exchange Rate', value: 'kursBi' },
   { name: 'Validation', value: 'validasi' },
   { name: 'Util', value: 'util' },
+  { name: 'Food Price', value: 'hargaPangan' },
+  { name: 'Air Quality', value: 'kualitasUdara' },
+  { name: 'Trademark', value: 'merek' },
+  { name: 'Transjakarta', value: 'transjakarta' },
+  { name: 'Region Boundary', value: 'wilayahBoundary' },
+  { name: 'Dataset Metadata', value: 'dataset' },
+  { name: 'Email Verification', value: 'emailVerify' },
 ];

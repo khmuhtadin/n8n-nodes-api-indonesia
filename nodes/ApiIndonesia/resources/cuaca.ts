@@ -1,5 +1,4 @@
 import type { INodeProperties } from 'n8n-workflow';
-import { returnAllField, limitField, pageField } from '../shared/descriptions';
 
 const dataOutput = {
   postReceive: [{ type: 'rootProperty' as const, properties: { property: 'data' } }],
@@ -34,16 +33,40 @@ export const cuacaOperations: INodeProperties[] = [
     ],
     default: 'getForecast',
   },
-  // Location ID for getForecast (maps to adm4 query param)
   {
-    displayName: 'Location ID',
+    displayName: 'Location Type',
+    name: 'locationType',
+    type: 'options',
+    displayOptions: { show: { resource: ['cuaca'], operation: ['getForecast'] } },
+    options: [
+      { name: 'Village (ADM4)', value: 'village' },
+      { name: 'Regency/City', value: 'regency' },
+    ],
+    default: 'village',
+  },
+  {
+    displayName: 'Village Code',
     name: 'locationId',
     type: 'string',
-    displayOptions: { show: { resource: ['cuaca'], operation: ['getForecast'] } },
+    displayOptions: {
+      show: { resource: ['cuaca'], operation: ['getForecast'], locationType: ['village'] },
+    },
     default: '',
     required: true,
-    description: 'Location ID (e.g. 501191 for Jakarta)',
+    description: 'Village (ADM4) code from the Region resource, e.g. 32.73.01.1001',
     routing: { send: { type: 'query', property: 'adm4' } },
+  },
+  {
+    displayName: 'Regency ID',
+    name: 'kabupatenId',
+    type: 'string',
+    displayOptions: {
+      show: { resource: ['cuaca'], operation: ['getForecast'], locationType: ['regency'] },
+    },
+    default: '',
+    required: true,
+    description: 'Regency/city code, e.g. 3273',
+    routing: { send: { type: 'query', property: 'kabupaten_id' } },
   },
   // Search query
   {
@@ -55,8 +78,4 @@ export const cuacaOperations: INodeProperties[] = [
     required: true,
     routing: { send: { type: 'query', property: 'q' } },
   },
-  // Pagination fields
-  returnAllField,
-  limitField,
-  pageField,
 ];

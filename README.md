@@ -41,8 +41,15 @@ n8n-nodes-api-indonesia
 - OJK Invest (investment products)
 - Early Warning (BMKG early warnings)
 - BI Exchange Rate (Bank Indonesia rates)
-- Validation (NIK, NPWP, bank, phone validators)
+- Validation (NIK, NPWP, bank list)
 - Util (utilities)
+- Food Price (harga pangan)
+- Air Quality
+- Trademark (merek)
+- Transjakarta (stops, routes, schedules, fares)
+- Region Boundary (GeoJSON)
+- Dataset Metadata
+- Email Verification
 
 ## Usage Examples
 

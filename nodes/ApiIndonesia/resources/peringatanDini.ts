@@ -1,5 +1,4 @@
 import type { INodeProperties } from 'n8n-workflow';
-import { returnAllField, limitField, pageField } from '../shared/descriptions';
 
 const dataOutput = {
   postReceive: [{ type: 'rootProperty' as const, properties: { property: 'data' } }],
@@ -34,7 +33,4 @@ export const peringatanDiniOperations: INodeProperties[] = [
     description: 'Filter by province name (partial match)',
     routing: { send: { type: 'query', property: 'provinsi' } },
   },
-  returnAllField,
-  limitField,
-  pageField,
 ];

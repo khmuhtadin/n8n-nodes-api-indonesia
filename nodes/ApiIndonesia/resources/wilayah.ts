@@ -1,5 +1,5 @@
 import type { INodeProperties } from 'n8n-workflow';
-import { returnAllField, limitField, pageField } from '../shared/descriptions';
+import { paginationFields } from '../shared/descriptions';
 
 const dataOutput = {
   postReceive: [{ type: 'rootProperty' as const, properties: { property: 'data' } }],
@@ -146,34 +146,35 @@ export const wilayahOperations: INodeProperties[] = [
     default: '',
     required: true,
   },
-  // Province filter for kabupaten/kecamatan/kelurahan lists
+  // Province filter for kabupaten list
   {
     displayName: 'Province ID Filter',
     name: 'provinsiIdFilter',
     type: 'string',
-    displayOptions: {
-      show: {
-        resource: ['wilayah'],
-        operation: ['getAllKabupaten', 'getAllKecamatan', 'getAllKelurahan'],
-      },
-    },
+    displayOptions: { show: { resource: ['wilayah'], operation: ['getAllKabupaten'] } },
     default: '',
     description: 'Filter by province code (e.g. 11 for Aceh)',
     routing: { send: { type: 'query', property: 'provinsi_id' } },
   },
-  // Regency filter for kecamatan/kelurahan lists
+  // Regency filter for kecamatan list
   {
     displayName: 'Regency ID Filter',
     name: 'kabupatenIdFilter',
     type: 'string',
-    displayOptions: {
-      show: {
-        resource: ['wilayah'],
-        operation: ['getAllKecamatan', 'getAllKelurahan'],
-      },
-    },
+    displayOptions: { show: { resource: ['wilayah'], operation: ['getAllKecamatan'] } },
     default: '',
+    description: 'Filter by regency/city code (e.g. 3273)',
     routing: { send: { type: 'query', property: 'kabupaten_id' } },
+  },
+  // District filter for kelurahan list
+  {
+    displayName: 'District ID Filter',
+    name: 'kecamatanIdFilter',
+    type: 'string',
+    displayOptions: { show: { resource: ['wilayah'], operation: ['getAllKelurahan'] } },
+    default: '',
+    description: 'Filter by district code (e.g. 327301)',
+    routing: { send: { type: 'query', property: 'kecamatan_id' } },
   },
   // Search query
   {
@@ -185,8 +186,5 @@ export const wilayahOperations: INodeProperties[] = [
     required: true,
     routing: { send: { type: 'query', property: 'q' } },
   },
-  // Pagination fields
-  returnAllField,
-  limitField,
-  pageField,
+  ...paginationFields('wilayah', ['getAllProvinsi', 'getAllKabupaten', 'getAllKecamatan', 'getAllKelurahan', 'search']),
 ];

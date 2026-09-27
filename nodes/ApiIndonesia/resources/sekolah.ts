@@ -1,5 +1,5 @@
 import type { INodeProperties } from 'n8n-workflow';
-import { returnAllField, limitField, pageField } from '../shared/descriptions';
+import { paginationFields } from '../shared/descriptions';
 
 const dataOutput = {
   postReceive: [{ type: 'rootProperty' as const, properties: { property: 'data' } }],
@@ -100,7 +100,32 @@ export const sekolahOperations: INodeProperties[] = [
     description: 'Filter by school status (e.g. Negeri, Swasta)',
     routing: { send: { type: 'query', property: 'status' } },
   },
-  returnAllField,
-  limitField,
-  pageField,
+  {
+    displayName: 'District ID Filter',
+    name: 'kecamatanIdFilter',
+    type: 'string',
+    displayOptions: { show: { resource: ['sekolah'], operation: ['getAll'] } },
+    default: '',
+    description: 'Filter by district code',
+    routing: { send: { type: 'query', property: 'district_id' } },
+  },
+  {
+    displayName: 'Accreditation Filter',
+    name: 'accreditationFilter',
+    type: 'string',
+    displayOptions: { show: { resource: ['sekolah'], operation: ['getAll'] } },
+    default: '',
+    description: 'Filter by accreditation grade (e.g. A, B, C)',
+    routing: { send: { type: 'query', property: 'accreditation' } },
+  },
+  {
+    displayName: 'Name or NPSN Filter',
+    name: 'qFilter',
+    type: 'string',
+    displayOptions: { show: { resource: ['sekolah'], operation: ['getAll'] } },
+    default: '',
+    description: 'Exact NPSN or school-name prefix (min 2 characters)',
+    routing: { send: { type: 'query', property: 'q' } },
+  },
+  ...paginationFields('sekolah', ['getAll']),
 ];

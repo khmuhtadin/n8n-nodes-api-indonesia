@@ -52,14 +52,4 @@ export const hijriahOperations: INodeProperties[] = [
     required: true,
     routing: { send: { type: 'query', property: 'tahun' } },
   },
-  {
-    displayName: 'Month',
-    name: 'bulan',
-    type: 'number',
-    typeOptions: { minValue: 1, maxValue: 12 },
-    displayOptions: { show: { resource: ['hijriah'], operation: ['kalender'] } },
-    default: 1,
-    required: true,
-    routing: { send: { type: 'query', property: 'bulan' } },
-  },
 ];

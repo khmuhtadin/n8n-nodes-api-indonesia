@@ -1,5 +1,5 @@
 import type { INodeProperties } from 'n8n-workflow';
-import { returnAllField, limitField, pageField } from '../shared/descriptions';
+import { paginationFields } from '../shared/descriptions';
 
 const dataOutput = {
   postReceive: [{ type: 'rootProperty' as const, properties: { property: 'data' } }],
@@ -70,7 +70,7 @@ export const rsOperations: INodeProperties[] = [
     displayOptions: { show: { resource: ['rs'], operation: ['getAll'] } },
     default: '',
     description: 'Filter by province code',
-    routing: { send: { type: 'query', property: 'provinsi_id' } },
+    routing: { send: { type: 'query', property: 'province_id' } },
   },
   {
     displayName: 'Regency ID Filter',
@@ -79,7 +79,7 @@ export const rsOperations: INodeProperties[] = [
     displayOptions: { show: { resource: ['rs'], operation: ['getAll'] } },
     default: '',
     description: 'Filter by regency code',
-    routing: { send: { type: 'query', property: 'kabupaten_id' } },
+    routing: { send: { type: 'query', property: 'regency_id' } },
   },
   {
     displayName: 'Type Filter',
@@ -88,7 +88,7 @@ export const rsOperations: INodeProperties[] = [
     displayOptions: { show: { resource: ['rs'], operation: ['getAll'] } },
     default: '',
     description: 'Filter by hospital type (e.g. RSU, RSUK, RSK)',
-    routing: { send: { type: 'query', property: 'jenis' } },
+    routing: { send: { type: 'query', property: 'type' } },
   },
   {
     displayName: 'Class Filter',
@@ -97,9 +97,16 @@ export const rsOperations: INodeProperties[] = [
     displayOptions: { show: { resource: ['rs'], operation: ['getAll'] } },
     default: '',
     description: 'Filter by hospital class (A, B, C, D)',
-    routing: { send: { type: 'query', property: 'kelas' } },
+    routing: { send: { type: 'query', property: 'class' } },
   },
-  returnAllField,
-  limitField,
-  pageField,
+  {
+    displayName: 'Ownership Filter',
+    name: 'ownershipFilter',
+    type: 'string',
+    displayOptions: { show: { resource: ['rs'], operation: ['getAll'] } },
+    default: '',
+    description: 'Filter by ownership (e.g. Pemerintah, Swasta)',
+    routing: { send: { type: 'query', property: 'ownership' } },
+  },
+  ...paginationFields('rs', ['getAll']),
 ];

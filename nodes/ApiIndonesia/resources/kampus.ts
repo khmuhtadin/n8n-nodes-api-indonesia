@@ -1,5 +1,5 @@
 import type { INodeProperties } from 'n8n-workflow';
-import { returnAllField, limitField, pageField } from '../shared/descriptions';
+import { paginationFields } from '../shared/descriptions';
 
 const dataOutput = {
   postReceive: [{ type: 'rootProperty' as const, properties: { property: 'data' } }],
@@ -70,7 +70,7 @@ export const kampusOperations: INodeProperties[] = [
     displayOptions: { show: { resource: ['kampus'], operation: ['getAll'] } },
     default: '',
     description: 'Filter by province code',
-    routing: { send: { type: 'query', property: 'provinsi_id' } },
+    routing: { send: { type: 'query', property: 'province' } },
   },
   {
     displayName: 'Regency ID Filter',
@@ -79,7 +79,7 @@ export const kampusOperations: INodeProperties[] = [
     displayOptions: { show: { resource: ['kampus'], operation: ['getAll'] } },
     default: '',
     description: 'Filter by regency code',
-    routing: { send: { type: 'query', property: 'kabupaten_id' } },
+    routing: { send: { type: 'query', property: 'regency' } },
   },
   {
     displayName: 'Type Filter',
@@ -87,8 +87,8 @@ export const kampusOperations: INodeProperties[] = [
     type: 'string',
     displayOptions: { show: { resource: ['kampus'], operation: ['getAll'] } },
     default: '',
-    description: 'Filter by university type (e.g. Universitas, Institut, Akademi)',
-    routing: { send: { type: 'query', property: 'jenis' } },
+    description: 'Filter by type: universitas, institut, politeknik, akademi, or sekolah_tinggi',
+    routing: { send: { type: 'query', property: 'type' } },
   },
   {
     displayName: 'Group Filter',
@@ -96,10 +96,8 @@ export const kampusOperations: INodeProperties[] = [
     type: 'string',
     displayOptions: { show: { resource: ['kampus'], operation: ['getAll'] } },
     default: '',
-    description: 'Filter by university group (e.g. Negeri, Swasta)',
-    routing: { send: { type: 'query', property: 'kelompok' } },
+    description: 'Filter by group: PTN, PTS, PTA, or PTK',
+    routing: { send: { type: 'query', property: 'group' } },
   },
-  returnAllField,
-  limitField,
-  pageField,
+  ...paginationFields('kampus', ['getAll']),
 ];

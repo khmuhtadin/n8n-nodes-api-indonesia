@@ -23,6 +23,13 @@ import { peringatanDiniOperations } from './peringatanDini';
 import { kursBiOperations } from './kursBi';
 import { validasiOperations } from './validasi';
 import { utilOperations } from './util';
+import { hargaPanganOperations } from './hargaPangan';
+import { kualitasUdaraOperations } from './kualitasUdara';
+import { merekOperations } from './merek';
+import { transjakartaOperations } from './transjakarta';
+import { wilayahBoundaryOperations } from './wilayahBoundary';
+import { datasetOperations } from './dataset';
+import { emailVerifyOperations } from './emailVerify';
 
 export const resourceProperties: INodeProperties[] = [
   ...wilayahOperations,
@@ -49,4 +56,11 @@ export const resourceProperties: INodeProperties[] = [
   ...kursBiOperations,
   ...validasiOperations,
   ...utilOperations,
+  ...hargaPanganOperations,
+  ...kualitasUdaraOperations,
+  ...merekOperations,
+  ...transjakartaOperations,
+  ...wilayahBoundaryOperations,
+  ...datasetOperations,
+  ...emailVerifyOperations,
 ];

@@ -43,7 +43,7 @@ export const halalOperations: INodeProperties[] = [
     displayOptions: { show: { resource: ['halal'], operation: ['get'] } },
     default: '',
     required: true,
-    description: 'UUID of the halal certificate',
+    description: 'Halal supervisor UUID (from search results)',
   },
   {
     displayName: 'Search Query',
@@ -64,15 +64,5 @@ export const halalOperations: INodeProperties[] = [
     typeOptions: { minValue: 1, maxValue: 200 },
     description: 'Max number of results to return',
     routing: { send: { type: 'query', property: 'limit' } },
-  },
-  {
-    displayName: 'Offset',
-    name: 'offset',
-    type: 'number',
-    displayOptions: { show: { resource: ['halal'], operation: ['getAll'] } },
-    default: 0,
-    typeOptions: { minValue: 0 },
-    description: 'Number of results to skip',
-    routing: { send: { type: 'query', property: 'offset' } },
   },
 ];

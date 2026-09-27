@@ -22,18 +22,6 @@ export const validasiOperations: INodeProperties[] = [
         },
       },
       {
-        name: 'Get Bank by Code',
-        value: 'getBank',
-        action: 'Get a bank by code',
-        routing: {
-          request: {
-            method: 'GET',
-            url: '=/api/v1/validasi/bank/{{$parameter["bankCode"]}}',
-          },
-          output: dataOutput,
-        },
-      },
-      {
         name: 'Validate NIK',
         value: 'validateNik',
         action: 'Validate a NIK',
@@ -59,46 +47,8 @@ export const validasiOperations: INodeProperties[] = [
           output: dataOutput,
         },
       },
-      {
-        name: 'Validate Phone',
-        value: 'validateTelepon',
-        action: 'Validate a phone number',
-        routing: {
-          request: {
-            method: 'POST',
-            url: '/api/v1/validasi/telepon',
-            body: { telepon: '={{$parameter["telepon"]}}' },
-          },
-          output: dataOutput,
-        },
-      },
-      {
-        name: 'Validate Bank Account',
-        value: 'validateRekening',
-        action: 'Validate a bank account number',
-        routing: {
-          request: {
-            method: 'POST',
-            url: '/api/v1/validasi/rekening',
-            body: {
-              bank_code: '={{$parameter["bankCode"]}}',
-              account_number: '={{$parameter["accountNumber"]}}',
-            },
-          },
-          output: dataOutput,
-        },
-      },
     ],
     default: 'getAllBanks',
-  },
-  {
-    displayName: 'Bank Code',
-    name: 'bankCode',
-    type: 'string',
-    displayOptions: { show: { resource: ['validasi'], operation: ['getBank', 'validateRekening'] } },
-    default: '',
-    required: true,
-    description: 'Bank code (e.g. BCA, BNI)',
   },
   {
     displayName: 'NIK',
@@ -117,23 +67,5 @@ export const validasiOperations: INodeProperties[] = [
     default: '',
     required: true,
     description: 'Tax ID number (NPWP) to validate',
-  },
-  {
-    displayName: 'Phone Number',
-    name: 'telepon',
-    type: 'string',
-    displayOptions: { show: { resource: ['validasi'], operation: ['validateTelepon'] } },
-    default: '',
-    required: true,
-    description: 'Phone number to validate',
-  },
-  {
-    displayName: 'Account Number',
-    name: 'accountNumber',
-    type: 'string',
-    displayOptions: { show: { resource: ['validasi'], operation: ['validateRekening'] } },
-    default: '',
-    required: true,
-    description: 'Bank account number to validate',
   },
 ];
